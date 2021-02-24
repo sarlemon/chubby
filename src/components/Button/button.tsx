@@ -22,13 +22,19 @@ interface BaseButtonProps {
   children: React.ReactNode;
 }
 
-const Button: React.FC<BaseButtonProps> = (props) => {
+type NativeButtonProps = BaseButtonProps & React.ButtonHTMLAttributes<HTMLElement>
+type AnchorButtonProps = BaseButtonProps & React.AnchorHTMLAttributes<HTMLElement>
+export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>;
+
+const Button: React.FC<ButtonProps> = (props) => {
   const { 
     btnType,
+    className,
     disabled,
     size,
     children,
-    href
+    href,
+    ...restProps
   } = props;
   const classes = classNames('btn',{
     [`btn-${btnType}`]: btnType,
@@ -40,6 +46,7 @@ const Button: React.FC<BaseButtonProps> = (props) => {
       <a
         className={classes}
         href={href}
+        {...restProps}
       >
         {children}
       </a>
@@ -49,6 +56,7 @@ const Button: React.FC<BaseButtonProps> = (props) => {
       <button
         className={classes}
         disabled={disabled}
+        {...restProps}
       >
         {children}
       </button>

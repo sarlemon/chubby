@@ -24,8 +24,12 @@ const Alert:React.FC<BaseAlertProps> = (props) => {
     const classes = classNames("alert", {
       [`alert-${type}`]: type,
     });
+    const handleClose = (e: React.MouseEvent<HTMLDivElement>) => {
+      setClosed(true);
+    };
     return (
-      <div className={classes}>
+      <div className={classes} onClick={handleClose}>
+        <a className='alert-close-icon'>关闭</a>
         {message}
         {description}
       </div>

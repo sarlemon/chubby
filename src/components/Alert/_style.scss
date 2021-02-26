@@ -1,0 +1,45 @@
+.alert {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  width: $alert-width;
+  margin-bottom: 10px;
+  font-family: $alert-font-family;
+  font-size: $alert-font-size;
+  line-height: $alert-line-height;
+  color: $white;
+  border: $alert-border-width solid transparent;
+  border-radius: $alert-border-radius;
+  box-shadow: $box-shadow;
+  padding: $alert-padding-y $alert-padding-x;
+  .alert-content {
+    flex: 1;
+    min-width: 0;
+  }
+}
+.alert-close-icon {
+  font-size: $font-size-sm;
+  cursor: pointer;
+}
+
+.alert-visible {
+  display: none;
+  transition: $alert-transition;
+}
+
+.alert-success {
+  @include alert-style($success, $success);
+}
+
+.alert-danger {
+  @include alert-style($danger, $danger);
+}
+
+.alert-default {
+  @include alert-style($primary, $primary);
+}
+
+.alert-warning {
+  @include alert-style($warning, $warning);
+}

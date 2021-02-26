@@ -225,6 +225,31 @@ background-color .15s ease-in-out,
 border-color .15s ease-in-out,
 box-shadow .15s ease-in-out !default;
 
+// alert
+// alert基本属性
+$alert-width: 300px;
+$alert-height: 100px;
+$alert-font-weight: 400;
+$alert-padding-y: 0.35rem !default;
+$alert-padding-x: .75rem !default;
+$alert-font-family: $font-family-base !default;
+$alert-font-size: $font-size-base !default;
+$alert-line-height: $line-height-base !default;
+
+// alert边框
+$alert-border-width: $border-width !default;
+
+// alert其他
+$alert-box-shadow: inset 0 1px 0 rgba($white, .15),
+0 1px 1px rgba($black, .075) !default;
+$alert-transition: color .15s ease-in-out,
+background-color .15s ease-in-out,
+border-color .15s ease-in-out,
+box-shadow .15s ease-in-out !default;
+
+// alert radius
+$alert-border-radius: $border-radius !default;
+
 // menu
 $menu-border-width: $border-width !default;
 $menu-border-color: $border-color !default;

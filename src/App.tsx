@@ -8,7 +8,7 @@ function App() {
       <header className="App-header">
         <Button>Hello</Button>
         <Button size={ButtonSize.Large} disabled>Disabled</Button>
-        <Button btnType={ButtonType.Danger} size={ButtonSize.Small}>Hello</Button>
+        <Button btnType={ButtonType.Danger} size={ButtonSize.Small} className='klass'>Hello</Button>
         <Button btnType={ButtonType.Link} href="http://www.baidu.com" disabled>Baidu</Button>
         <Alert type='success' message='hello' description='talsdkjflajf'/>
         <Alert type='warning' message='hello' description='talsdkjflajf' />

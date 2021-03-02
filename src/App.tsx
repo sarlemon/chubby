@@ -1,11 +1,25 @@
 import React from 'react';
 import Button, { ButtonType, ButtonSize } from './components/Button/button'
 import Alert from './components/Alert/Alert'
+import Menu from './components/Menu/menu'
+import MenuItem from './components/Menu/menuItem'
 //text
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Menu defaultIndex={1} onSelect={(index) => { alert(index) }} mode='vertical'>
+          <MenuItem index={1}>
+            cool link
+          </MenuItem>
+          <MenuItem index={2} disabled>
+            cool link2
+          </MenuItem>
+          <MenuItem index={3}>
+            cool link3
+          </MenuItem>
+          <li>asdfasd</li>
+        </Menu>
         <Button>Hello</Button>
         <Button size={ButtonSize.Large} disabled>Disabled</Button>
         <Button btnType={ButtonType.Danger} size={ButtonSize.Small} className='klass'>Hello</Button>

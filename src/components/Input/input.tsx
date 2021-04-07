@@ -57,3 +57,5 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     </div>
   )
 })
+
+export default Input;

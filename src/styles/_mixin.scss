@@ -34,10 +34,8 @@
   }
 }
 
-@mixin alert-style(
-  $background,
-  $border
-) {
+@mixin alert-style($background, $border, $color) {
+  color: $color;
   background: $background;
   border-color: $border;
 }
@@ -67,4 +65,19 @@
     transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms, opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
     transform-origin: $origin;
   }
+}
+
+@mixin border-right-radius($raduis) {
+  border-top-right-radius: $raduis;
+  border-bottom-right-radius: $raduis;
+}
+
+@mixin border-left-radius($raduis) {
+  border-top-left-radius: $raduis;
+  border-bottom-left-radius: $raduis;
+}
+
+@mixin border-top-radius($raduis) {
+  border-top-left-radius: $raduis;
+  border-top-right-radius: $raduis;
 }

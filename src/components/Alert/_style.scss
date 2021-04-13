@@ -1,45 +1,35 @@
-.alert {
-  box-sizing: border-box;
+$alert-colors: 
+(
+  "default":    $primary,
+  "success":    $success,
+  "warning":    $warning,
+  "danger":     $danger,
+);
+.chubby-alert {
   position: relative;
-  display: flex;
-  align-items: flex-start;
-  width: $alert-width;
-  margin-bottom: 10px;
-  font-family: $alert-font-family;
-  font-size: $alert-font-size;
-  line-height: $alert-line-height;
-  color: $white;
+  padding: $alert-padding-y $alert-padding-x;
+  margin-bottom: $alert-margin-bottom;
   border: $alert-border-width solid transparent;
   border-radius: $alert-border-radius;
-  box-shadow: $box-shadow;
-  padding: $alert-padding-y $alert-padding-x;
-  .alert-content {
-    flex: 1;
-    min-width: 0;
+  .chubby-alert-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: $alert-padding-y $alert-padding-x;
+    color: inherit;
+    cursor: pointer;
+  }
+  .bold-title {
+    font-weight: $font-weight-bold;
+  }
+  .chubby-alert-desc {
+    font-size: $alert-description-font-size;
+    margin: $alert-description-top-margin 0 0;
   }
 }
-.alert-close-icon {
-  font-size: $font-size-sm;
-  cursor: pointer;
+@each $color, $value in $alert-colors {
+  .chubby-alert-#{$color} {
+    @include alert-style($value, darken($value, 5%), $white);
+  }
 }
 
-.alert-visible {
-  display: none;
-  transition: $alert-transition;
-}
-
-.alert-success {
-  @include alert-style($success, $success);
-}
-
-.alert-danger {
-  @include alert-style($danger, $danger);
-}
-
-.alert-default {
-  @include alert-style($primary, $primary);
-}
-
-.alert-warning {
-  @include alert-style($warning, $warning);
-}

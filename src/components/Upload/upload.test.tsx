@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom/extend-expect'
 import React from 'react'
 import axios from 'axios'
-import { render, RenderResult, fireEvent, wait, createEvent } from '@testing-library/react'
+import { render, RenderResult, fireEvent, waitFor, createEvent } from '@testing-library/react'
 
 import { Upload, UploadProps } from './upload'
 
@@ -27,6 +27,7 @@ describe('test upload component', () => {
     wrapper = render(<Upload {...testProps}>Click to upload</Upload>)
     fileInput = wrapper.container.querySelector('.chubby-file-input') as HTMLInputElement
     uploadArea = wrapper.queryByText('Click to upload') as HTMLElement
+    mockedAxios.post.mockResolvedValue({ data: "cool" });
   })
   it('upload process should works fine', async () => {
     const { queryByText, getByText } = wrapper
@@ -38,7 +39,7 @@ describe('test upload component', () => {
     expect(fileInput).not.toBeVisible()
     fireEvent.change(fileInput, { target: { files: [testFile ]}})
     expect(queryByText('spinner')).toBeInTheDocument()
-    await wait(() => {
+    await waitFor(() => {
       expect(queryByText('test.png')).toBeInTheDocument()
     })
     expect(queryByText('check-circle')).toBeInTheDocument()
@@ -78,7 +79,7 @@ describe('test upload component', () => {
     })
     fireEvent(uploadArea, mockDropEvent)
 
-    await wait(() => {
+    await waitFor(() => {
       expect(wrapper.queryByText('test.png')).toBeInTheDocument()
     })
     expect(testProps.onSuccess).toHaveBeenCalledWith('cool', expect.objectContaining({

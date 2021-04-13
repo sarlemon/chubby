@@ -71,7 +71,7 @@ const dragUpload = () => (
   </Upload>
 )
 
-storiesOf('Upload', module)
+storiesOf('第十章：Upload', module)
   .add('Upload', simpleUpload)
   .add('上传前检查文件大小', checkUpload, {info: {source: false, text: textCheck}})
   .add('拖动上传', dragUpload)
